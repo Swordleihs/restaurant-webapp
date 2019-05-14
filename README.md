@@ -1,2 +1,2 @@
 # Ruben_Claes
-euhm wa moet ik hier iets schrijve
+Welkom op Ruben's epische Internet Programmeren repository. 
