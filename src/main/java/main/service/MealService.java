@@ -98,10 +98,19 @@ public class MealService {
     }
 
     public Meal findMealByName(String name){
+        if(name == null || name.trim().isEmpty()){
+            throw new IllegalArgumentException();
+        }
+        if(mealDb.findByName(name) == null){
+            throw new IllegalArgumentException();
+        }
         return mealDb.findByName(name);
     }
 
     public Meal addMeal(Meal meal){
+        if(meal == null){
+            throw new IllegalArgumentException();
+        }
         Meal mealToAdd = mealDb.findByName(meal.getName());
         if(mealToAdd != null){
             meal.setId(mealToAdd.getId());
@@ -110,10 +119,16 @@ public class MealService {
     }
 
     public void deleteMeal(Meal meal){
+        if(meal == null){
+            throw new IllegalArgumentException();
+        }
         mealDb.delete(meal);
     }
 
     public void updateMeal(Meal meal){
+        if(meal == null){
+            throw new IllegalArgumentException();
+        }
         mealDb.save(meal);
     }
 }

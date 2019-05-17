@@ -9,5 +9,4 @@ import java.util.Optional;
 @Repository
 public interface MealDb extends JpaRepository<Meal, Integer> {
     Meal findByName(String name);
-    //void deleteByName(String name);
 }
