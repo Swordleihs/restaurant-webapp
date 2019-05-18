@@ -41,6 +41,11 @@
                     </select>
                 </div>
             </div>
+
+            <form action="/logout" method="post">
+                <input type="submit" value="Sign Out"/>
+            </form>
+
         </main>
         <footer class="m-3">
             <small><p>Ruben Claes, <spring:message code="footer" text="default"/></p></small>

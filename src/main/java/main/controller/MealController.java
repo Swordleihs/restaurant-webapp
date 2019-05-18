@@ -32,6 +32,17 @@ public class MealController implements WebMvcConfigurer {
         return "index";
     }
 
+    @GetMapping("/login")
+    public String login(Model model, String error, String logout) {
+        if (error != null)
+            model.addAttribute("errorMsg", "Your username and password are invalid.");
+
+        if (logout != null)
+            model.addAttribute("msg", "You have been logged out successfully.");
+
+        return "login";
+    }
+
     @GetMapping("/gerechten")
     public String getMeals(Model model){
         model.addAttribute("meals", mealService.getAllMeals());
