@@ -1,4 +1,7 @@
-package main.model;
+package main.model.builder;
+
+import main.model.Meal;
+import main.model.MealType;
 
 public class MealBuilder {
 

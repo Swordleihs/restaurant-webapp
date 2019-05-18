@@ -1,4 +1,8 @@
-package main.model;
+package main.model.builder;
+
+import main.model.DayMenu;
+import main.model.Meal;
+import main.model.MealType;
 
 import java.time.LocalDate;
 

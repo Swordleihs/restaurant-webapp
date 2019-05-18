@@ -2,7 +2,7 @@ package main;
 
 import main.db.MealDb;
 import main.model.Meal;
-import main.model.MealBuilder;
+import main.model.builder.MealBuilder;
 import main.model.MealType;
 import org.junit.Test;
 import org.junit.runner.RunWith;

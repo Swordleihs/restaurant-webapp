@@ -4,6 +4,7 @@ import main.db.DayMenuDb;
 import main.db.MealDb;
 import main.db.WeekMenuDb;
 import main.model.*;
+import main.model.builder.MealBuilder;
 import main.service.MealService;
 import org.junit.Before;
 import org.junit.Test;
