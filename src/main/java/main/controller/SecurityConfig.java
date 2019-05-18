@@ -1,4 +1,4 @@
-package main;
+package main.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -13,12 +13,12 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception{
-        httpSecurity.authorizeRequests()
-                .mvcMatchers("/").permitAll()
+        httpSecurity.authorizeRequests().mvcMatchers("/").permitAll()
                 .mvcMatchers("/*").permitAll()
                 .mvcMatchers("/h2-console/*").permitAll()
                 .mvcMatchers("/dagmenu/*").permitAll()
                 .mvcMatchers("/weekmenu/*").permitAll()
+                .mvcMatchers("/css/**", "/js/**").permitAll()
                 .mvcMatchers("/weekmenu/angular").permitAll()
                 .mvcMatchers("/weekmenus/*").permitAll()
                 .mvcMatchers("/gerechten/").hasAnyRole("USER","ADMIN")
@@ -28,7 +28,6 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and().logout().permitAll();
         httpSecurity.csrf().disable();
         httpSecurity.headers().frameOptions().sameOrigin();
-
     }
 
     @Autowired
