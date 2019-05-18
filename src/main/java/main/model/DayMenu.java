@@ -80,6 +80,9 @@ public class DayMenu {
     }
 
     public void setSoup(Meal s) {
+        if(s == null){
+            throw new IllegalArgumentException();
+        }
         if(!s.getMealType().equals(MealType.SOEP)){
             throw new DomainException("Not a soup!");
         }
@@ -91,6 +94,9 @@ public class DayMenu {
     }
 
     public void setDaily(Meal d) {
+        if(d == null){
+            throw new IllegalArgumentException();
+        }
         if(!d.getMealType().equals(MealType.DAGSCHOTEL)){
             throw new DomainException("Not a daily meal!");
         }
@@ -102,6 +108,9 @@ public class DayMenu {
     }
 
     public void setVeggie(Meal v) {
+        if(v == null){
+            throw new IllegalArgumentException();
+        }
         if(!v.getMealType().equals(MealType.VEGGIE)){
             throw new DomainException("Not a veggie meal!");
         }

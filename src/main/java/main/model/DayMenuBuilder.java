@@ -7,11 +7,9 @@ public class DayMenuBuilder {
     private LocalDate date;
     private Meal soup, daily, veggie;
 
-    private DayMenuBuilder(){
+    private DayMenuBuilder(){}
 
-    }
-
-    public static DayMenuBuilder dayMenu () {
+    public static DayMenuBuilder dayMenu() {
         return new DayMenuBuilder();
     }
 
@@ -23,12 +21,8 @@ public class DayMenuBuilder {
         return dayMenu().setDate(LocalDate.of(2019,2, 19)).setSoup(new Meal("Bloemkoolsoep", 1, MealType.SOEP)).setDaily(new Meal("Cordon Blue", 4.2, MealType.DAGSCHOTEL)).setVeggie(new Meal("Veggie pasta", 4, MealType.VEGGIE));
     }
 
-    public static DayMenuBuilder dayMenu3 () {
-        return dayMenu().setDate(LocalDate.of(2019,2, 20)).setSoup(new Meal("Tomatensoep", 1, MealType.SOEP)).setDaily(new Meal("Konijn met pruimen", 4.2, MealType.DAGSCHOTEL)).setVeggie(new Meal("Groentenlasagne", 4, MealType.VEGGIE));
-    }
-
-    private DayMenuBuilder setDate(LocalDate datum) {
-        this.date = datum;
+    private DayMenuBuilder setDate(LocalDate date) {
+        this.date = date;
         return this;
     }
 
@@ -47,13 +41,12 @@ public class DayMenuBuilder {
         return this;
     }
 
-
     public DayMenu build() {
         DayMenu dayMenu = new DayMenu();
-        dayMenu.setDate(date);
-        dayMenu.setSoup(soup);
-        dayMenu.setDaily(daily);
-        dayMenu.setVeggie(veggie);
+        dayMenu.setDate(this.date);
+        dayMenu.setSoup(this.soup);
+        dayMenu.setDaily(this.daily);
+        dayMenu.setVeggie(this.veggie);
         return dayMenu;
     }
 
