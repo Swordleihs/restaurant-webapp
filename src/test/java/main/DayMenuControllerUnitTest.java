@@ -36,7 +36,7 @@ public class DayMenuControllerUnitTest {
 
     @MockBean
     private DayMenuDb dayMenuDb;
-    
+
     @MockBean
     private WeekMenuDb weekMenuDb;
 

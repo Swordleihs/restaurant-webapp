@@ -6,41 +6,65 @@
         <meta charset="UTF-8">
         <title>Add</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
     </head>
     <body>
         <header>
-            <h1>Gerecht Toevoegen</h1>
-            <ul>
-                <li><a href="/home">Home</a></li>
-                <li><a href="/gerechten">Gerechten</a></li>
-                <li><a href="/weekmenu">Weekmenu</a></li>
-            </ul>
+            <div class="mt-4">
+                <h1 class="ml-3">Gerechten Toevoegen</h1>
+            </div>
+            <div class="my-3">
+                <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item"><a class="nav-link" href="/home">Home</a></li>
+                            <li class="nav-item active"><a class="nav-link" href="/gerechten">Gerechten</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/weekmenu">Weekmenu</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
         </header>
-        <main>
+        <main class="mx-3">
             <c:forEach items="${errors}" var="error">
                 <c:out value="${error.field} ${error.defaultMessage}"/>
             </c:forEach>
             <form method="post" action="/gerechten/add">
-                <p><label for="name">Beschrijving: </label><input type="text" name="name" id="name"/></p>
-                <p><label for="price">Prijs: </label><input type="number" step="0.01" name="price" id="price" required /></p>
-                <p>
-                    <label for="mealType">Type: </label>
-                    <select name="mealType" id="mealType">
-                        <c:forEach var="mealType" items="${mealTypes}">
-                            <option value="${mealType}"> ${mealType}</option>
-                        </c:forEach>
-                    </select>
-                </p>
-                <p><input type="submit" id="addGerecht" value="voeg toe"/></p>
+                <div class="form-group">
+                    <label for="name">Beschrijving</label>
+                    <input class="form-control" type="text" name="name" id="name" placeholder="Beschrijf het gerecht"/>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="price">Prijs</label>
+                            <input class="form-control" type="number" step="0.01" name="price" id="price" required placeholder="Prijs"/>
+                            <small class="form-text text-muted">De prijs is maximaal €10</small>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="mealType">Type</label>
+                            <select class="form-control" name="mealType" id="mealType">
+                                <c:forEach var="mealType" items="${mealTypes}">
+                                    <option value="${mealType}"> ${mealType}</option>
+                                </c:forEach>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <input class="btn btn-dark" type="submit" id="addGerecht" value="voeg toe"/>
+                <a class="btn btn-dark" href="/gerechten">stop</a>
             </form>
-            <p><a href="/gerechten">stop</a></p>
         </main>
-        <footer>
-            <p>Ruben Claes, Internet Programmeren</p>
+        <footer class="m-3">
+            <small><p>Ruben Claes, Internet Programmeren</p></small>
         </footer>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="/js/jquery.js"></script>
+        <script src="/js/bootstrap.bundle.js"></script>
     </body>
 </html>
