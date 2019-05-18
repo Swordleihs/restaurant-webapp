@@ -22,7 +22,12 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav">
-                            <li class="nav-item"><a class="nav-link disabled" href="/home"><spring:message code="navbar.home" text="default"/></a></li>
+                            <c:if test="${param.logout != null}">
+                                <li class="nav-item"><a class="nav-link" href="/home"><spring:message code="navbar.home" text="default"/></a></li>
+                            </c:if>
+                            <c:if test="${param.logout == null}">
+                                <li class="nav-item"><a class="nav-link disabled" href="/home"><spring:message code="navbar.home" text="default"/></a></li>
+                            </c:if>
                             <li class="nav-item"><a class="nav-link disabled" href="/gerechten"><spring:message code="navbar.meals" text="default"/></a></li>
                             <li class="nav-item"><a class="nav-link disabled" href="/weekmenu"><spring:message code="navbar.weekmenu" text="default"/></a></li>
                         </ul>
@@ -31,9 +36,21 @@
             </div>
         </header>
         <main class="mx-3">
-            <div class="alert alert-danger" role="alert">
+            <c:if test="${param.logout != null}">
+                <div class="alert alert-success" role="alert">
+                    <spring:message code="login.logout" text="default"/>
+                </div>
+            </c:if>
+            <c:if test="${param.logout == null}">
+                <div class="alert alert-dark" role="alert">
                 <spring:message code="login.alert" text="default"/>
-            </div>
+                </div>
+            </c:if>
+            <c:if test="${param.error != null}">
+                <div class="alert alert-danger" role="alert">
+                    <spring:message code="login.failed" text="default"/>
+                </div>
+            </c:if>
             <form action="/login" method="POST">
                 <div class="form-group">
                     <label for="username"><spring:message code="login.username" text="default"/></label>
@@ -44,6 +61,7 @@
                     <input class="form-control" type="password" name="password" id="pw" placeholder="<spring:message code="login.password.placeholder" text="default"/>">
                 </div>
                 <input class="btn btn-dark" type="submit" name="submit" value="<spring:message code="login.login" text="default"/>">
+                <a class="btn btn-dark" href="/home"><spring:message code="add.stop" text="default"/></a>
             </form>
         </main>
         <footer class="m-3">

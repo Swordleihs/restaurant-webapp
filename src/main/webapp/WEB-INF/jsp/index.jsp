@@ -15,7 +15,7 @@
                 <h1 class="ml-3"><spring:message code="title.text" text="default"/></h1>
             </div>
             <div class="my-3">
-                <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between">
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -26,6 +26,9 @@
                             <li class="nav-item"><a class="nav-link" href="/weekmenu"><spring:message code="navbar.weekmenu" text="default"/></a></li>
                         </ul>
                     </div>
+                    <form class="form-inline" action="/logout" method="post">
+                        <input class="btn btn-light" type="submit" value="<spring:message code="signout" text="default"/>"/>
+                    </form>
                 </nav>
             </div>
         </header>
