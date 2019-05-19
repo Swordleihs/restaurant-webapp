@@ -43,20 +43,4 @@ public class WeekMenu {
     public boolean weekMenuIsEmpty(){
         return weekMenu.isEmpty();
     }
-
-    /*
-    public void addMealToMenu(int day, Meal meal){
-        Integer dayI = day;
-        if(day < 0 || day > 6){
-            throw new DomainException();
-        }else if(meal == null){
-            throw new DomainException("invalid meal");
-        }
-        if(this.weekmenu.get(dayI)==null)
-            throw new DomainException("this day does not have a daymenu ");
-
-        DayMenu dm = this.weekmenu.get(dayI);
-        dm.setMeal(meal);
-        this.weekmenu.replace(dayI, dm);
-    }*/
  }

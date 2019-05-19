@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @RestController
@@ -15,7 +16,10 @@ public class WeekMenuController {
     private MealService weekMenuService;
 
     @GetMapping("/weekmenu")
-    public List<WeekMenu> getWeekMenus(){
+    public List<WeekMenu> getWeekMenus(HttpServletResponse response){
+        System.out.println(weekMenuService.getWeekMenus().toString());
+        response.setContentType("application/json");
+        response.setHeader("Access-Control-Allow-Origin", "*");
         return weekMenuService.getWeekMenus();
     }
 
