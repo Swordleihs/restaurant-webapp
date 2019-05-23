@@ -73,6 +73,7 @@ public class MealController implements WebMvcConfigurer {
     @GetMapping(value="/gerechten/confirmdelete", params={"beschrijving"})
     public String deleteMealConfirmation(@RequestParam(value="beschrijving") String name, Model model){
         Meal meal = mealService.findMealByName(name);
+        System.out.println("meal=" + meal.getId());
         mealService.deleteMeal(meal);
         model.addAttribute("meals", mealService.getAllMeals());
         return "gerechten";

@@ -3,7 +3,6 @@ package main.model.builder;
 import main.model.DayMenu;
 import main.model.Meal;
 import main.model.MealType;
-
 import java.time.LocalDate;
 
 public class DayMenuBuilder {
@@ -18,39 +17,46 @@ public class DayMenuBuilder {
     }
 
     public static DayMenuBuilder dayMenu1 () {
-        return dayMenu().setDate(LocalDate.of(2019,2, 18)).setSoup(new Meal("Tomatensoep", 1, MealType.SOEP)).setDaily(new Meal("Konijn met pruimen", 4.2, MealType.DAGSCHOTEL)).setVeggie(new Meal("Groentenlasagne", 4, MealType.VEGGIE));
+        Meal soup = new Meal("Tomatensoep", 1.0, MealType.SOEP);
+        Meal daily = new Meal("Konijn met pruimen", 4.2, MealType.DAGSCHOTEL);
+        Meal veggie = new Meal("Veggie pasta", 4.0, MealType.VEGGIE);
+
+        return dayMenu().setDate(LocalDate.of(2019,2, 18)).setSoup(soup).setDaily(daily).setVeggie(veggie);
     }
 
     public static DayMenuBuilder dayMenu2 () {
-        return dayMenu().setDate(LocalDate.of(2019,2, 19)).setSoup(new Meal("Bloemkoolsoep", 1, MealType.SOEP)).setDaily(new Meal("Cordon Blue", 4.2, MealType.DAGSCHOTEL)).setVeggie(new Meal("Veggie pasta", 4, MealType.VEGGIE));
+        Meal soup = new Meal("Bloemkoolsoep", 1.0, MealType.SOEP);
+        Meal daily = new Meal("Cordon Blue", 4.2, MealType.DAGSCHOTEL);
+        Meal veggie = new Meal("Veggie pasta", 4.0, MealType.VEGGIE);
+        return dayMenu().setDate(LocalDate.of(2019,2, 19)).setSoup(soup).setDaily(daily).setVeggie(veggie);
     }
 
-    private DayMenuBuilder setDate(LocalDate date) {
+    public DayMenuBuilder setDate(LocalDate date) {
         this.date = date;
         return this;
     }
 
-    private DayMenuBuilder setSoup(Meal soup) {
+    public DayMenuBuilder setSoup(Meal soup) {
         this.soup = soup;
         return this;
     }
 
-    private DayMenuBuilder setDaily(Meal daily) {
+    public DayMenuBuilder setDaily(Meal daily) {
         this.daily = daily;
         return this;
     }
 
-    private DayMenuBuilder setVeggie(Meal veggie) {
+    public DayMenuBuilder setVeggie(Meal veggie) {
         this.veggie = veggie;
         return this;
     }
 
     public DayMenu build() {
         DayMenu dayMenu = new DayMenu();
-        dayMenu.setDate(this.date);
-        dayMenu.setSoup(this.soup);
-        dayMenu.setDaily(this.daily);
-        dayMenu.setVeggie(this.veggie);
+        dayMenu.setDate(LocalDate.of(2019,2, 18));
+        dayMenu.setSoup(soup);
+        dayMenu.setDaily(daily);
+        dayMenu.setVeggie(veggie);
         return dayMenu;
     }
 

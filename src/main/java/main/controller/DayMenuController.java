@@ -21,9 +21,15 @@ public class DayMenuController {
         return dayMenuService.getDayMenus();
     }
 
+    @GetMapping("/dagmenu/{date}")
+    public DayMenu getDayMenuById(@PathVariable String date){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("[yyyy-MM-dd][yyyy/MM/dd][dd-MM-yyyy][dd/MM/yyyy]");
+        LocalDate dateFromUrl = LocalDate.parse(date, formatter);
+        return dayMenuService.getDayMenuById(dateFromUrl).orElseThrow(IllegalArgumentException::new);
+    }
+
     @PostMapping("/dagmenu/add")
     public List<DayMenu> addDayMenu(@RequestBody @Valid DayMenu dayMenu){
-        System.out.println(dayMenu.toString());
         dayMenuService.addDayMenu(dayMenu);
         return dayMenuService.getDayMenus();
     }

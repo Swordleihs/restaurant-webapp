@@ -45,6 +45,8 @@ public class MealService {
         return this.dayMenuDb.findAll();
     }
 
+    public Optional<DayMenu> getDayMenuById(LocalDate date){ return dayMenuDb.findById(date);}
+
     public void addDayMenu(DayMenu dm){
         commitToDatabase(dm);
 

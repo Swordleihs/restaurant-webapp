@@ -21,6 +21,7 @@ public class Application {
         SpringApplication.run(Application.class, args);
     }
 
+
     @Bean
     @Order(1)
     public CommandLineRunner runnerMeals(MealDb mealDb) {
@@ -28,10 +29,13 @@ public class Application {
             mealDb.save(new Meal("Bloemkoolsoep", 1, MealType.SOEP));
             mealDb.save(new Meal("Tomatensoep", 1, MealType.SOEP));
             mealDb.save(new Meal("Pompoensoep", 1, MealType.SOEP));
+            mealDb.save(new Meal("Preisoep", 1, MealType.SOEP));
             mealDb.save(new Meal("Cordon Blue", 4.2, MealType.DAGSCHOTEL));
             mealDb.save(new Meal("Konijn met Pruimen", 4.2, MealType.DAGSCHOTEL));
+            mealDb.save(new Meal("Biefstuk met Friet", 4.2, MealType.DAGSCHOTEL));
             mealDb.save(new Meal("Groentenlasagne", 4, MealType.VEGGIE));
             mealDb.save(new Meal("Veggie Pasta", 4, MealType.VEGGIE));
+            mealDb.save(new Meal("Salade", 4, MealType.VEGGIE));
         };
     }
 
@@ -122,4 +126,5 @@ public class Application {
             weekMenuDb.save(weekMenu1);
         };
     }
+
 }
