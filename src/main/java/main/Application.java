@@ -22,6 +22,7 @@ public class Application {
     }
 
 
+    /*
     @Bean
     @Order(1)
     public CommandLineRunner runnerMeals(MealDb mealDb) {
@@ -126,5 +127,6 @@ public class Application {
             weekMenuDb.save(weekMenu1);
         };
     }
+    */
 
 }

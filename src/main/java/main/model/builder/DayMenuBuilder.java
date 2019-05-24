@@ -53,7 +53,7 @@ public class DayMenuBuilder {
 
     public DayMenu build() {
         DayMenu dayMenu = new DayMenu();
-        dayMenu.setDate(LocalDate.of(2019,2, 18));
+        dayMenu.setDate(date);
         dayMenu.setSoup(soup);
         dayMenu.setDaily(daily);
         dayMenu.setVeggie(veggie);

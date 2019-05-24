@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import java.util.Arrays;
@@ -41,6 +42,7 @@ public class DayMenuControllerUnitTest {
     private WeekMenuDb weekMenuDb;
 
     @Test
+    @WithMockUser(username="admin",roles={"USER","ADMIN"})
     public void given_Two_DayMenus_when_GetDayMenus_then_ReturnJsonArray() throws Exception {
 
         DayMenu dayMenu1 = DayMenuBuilder.dayMenu1().build();
@@ -57,7 +59,7 @@ public class DayMenuControllerUnitTest {
                 .andExpect(jsonPath("$[0].daily.name").value("Konijn met pruimen"))
                 .andExpect(jsonPath("$[0].daily.price").value(4.2))
                 .andExpect(jsonPath("$[0].daily.mealType").value("DAGSCHOTEL"))
-                .andExpect(jsonPath("$[0].veggie.name").value("Groentenlasagne"))
+                .andExpect(jsonPath("$[0].veggie.name").value("Veggie pasta"))
                 .andExpect(jsonPath("$[0].veggie.price").value(4))
                 .andExpect(jsonPath("$[0].veggie.mealType").value("VEGGIE"))
                 .andExpect(jsonPath("$[1].date").value("2019-02-19"))
