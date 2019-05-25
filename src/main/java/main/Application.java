@@ -21,8 +21,8 @@ public class Application {
         SpringApplication.run(Application.class, args);
     }
 
+    //Commenten om Testen te doen werken
 
-    /*
     @Bean
     @Order(1)
     public CommandLineRunner runnerMeals(MealDb mealDb) {
@@ -127,6 +127,6 @@ public class Application {
             weekMenuDb.save(weekMenu1);
         };
     }
-    */
+
 
 }

@@ -17,7 +17,6 @@ public class WeekMenuController {
 
     @GetMapping("/weekmenu")
     public List<WeekMenu> getWeekMenus(HttpServletResponse response){
-        System.out.println(weekMenuService.getWeekMenus().toString());
         response.setContentType("application/json");
         response.setHeader("Access-Control-Allow-Origin", "*");
         return weekMenuService.getWeekMenus();
